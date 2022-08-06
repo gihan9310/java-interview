@@ -107,5 +107,7 @@ public class ExampleOne {
          */
         Set<Integer> set = intList.stream().map(i -> i).collect(Collectors.toSet());
         System.out.println("SET : "+set);
+
+
     }
 }
