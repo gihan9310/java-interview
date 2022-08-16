@@ -14,8 +14,10 @@ package com.gihanz.stram_api;
 
 import com.gihanz.stram_api.models.StudentDTO;
 
-import java.util.*;
-import java.util.function.Function;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -84,9 +86,9 @@ public class ExampleOne {
          */
 
             StudentDTO studentDTO = demoStudentList.stream().max(Comparator.comparing(StudentDTO::getAge)).orElse(null);
-//            System.out.println("studentDTO : "+studentDTO.getAge());
+            System.out.println("studentDTO : "+studentDTO.getAge());
             StudentDTO min = demoStudentList.stream().min(Comparator.comparing(StudentDTO::getAge)).orElse(null);
-//            System.out.println("min : "+min.getAge());
+            System.out.println("min : "+min.getAge());
 
         /*
             distinct()
@@ -98,16 +100,31 @@ public class ExampleOne {
         /*
             Frequency
          */
-        HashMap<Integer, Long> map = intList.stream().collect( Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.counting()));
-        System.out.println("MAP " +map);
+//        HashMap<Integer, Long> map = intList.stream().collect( Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.counting()));
+//        System.out.println("MAP " +map);
 
         /*
          TOSet
             get Uniq data as set
          */
-        Set<Integer> set = intList.stream().map(i -> i).collect(Collectors.toSet());
-        System.out.println("SET : "+set);
+//        Set<Integer> set = intList.stream().map(i -> i).collect(Collectors.toSet());
+//        System.out.println("SET : "+set);
+//
+//
+//        List<StudentDTO> list = demoStudentList.stream().map(d -> new StudentDTO(d.getId(), d.getName(), d.getAddress(), (d.getAge()+1))).collect(Collectors.toList());
+//        System.out.println("AGE 0 : "+list);
 
+//        Stream.generate(Math::random).limit(10).forEach(res-> System.out.println(res));
+
+        List<StudentDTO> collectX = demoStudentList.stream().sorted((o1, o2) -> o1.getAge()+"".compareToIgnoreCase(o2.getAge()+"")).collect(Collectors.toList());
+//        System.out.println("collectX : "+collectX);
+
+
+        StudentDTO dto = demoStudentList.stream().min(Comparator.comparingInt(StudentDTO::getAge)).orElse(null);
+
+        System.out.println("MAX AGE : "+dto);
+
+        demoStudentList.stream().collect(Collectors.groupingBy(d -> d.getName(), HashMap::new, Collectors.counting()));
 
     }
 }
