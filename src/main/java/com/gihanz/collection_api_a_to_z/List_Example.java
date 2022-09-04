@@ -29,5 +29,24 @@ public class List_Example {
         list.add("Ravi");
         list.add("Ajay");
 
+        /*
+         * LinkedList
+         */
+
+        LinkedList<String> al=new LinkedList<String>();
+        al.add("Ravi");
+        al.add("Vijay");
+        al.add("Ravi");
+        al.add("Ajay");
+        al.add(null);
+        al.add(null);
+        /*
+         * Vector
+         */
+        Vector<String> v=new Vector<String>();
+        v.add("Ayush");
+        v.add("Amit");
+        v.add("Ashish");
+        v.add("Garima");
     }
 }
