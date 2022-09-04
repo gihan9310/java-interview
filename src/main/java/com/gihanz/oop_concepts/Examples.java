@@ -12,8 +12,8 @@ public class Examples {
              of a parent object, it is known as inheritance.
             It provides code reusability. It is used to achieve runtime polymorphism.
          */
-        FatherDTO obj = new ChildDTO();
-        obj.printSomethig();
+//        FatherDTO obj = new ChildDTO();
+//        obj.printSomethig();
 
         /*
              Polymorphism ===>>>> If one task is performed in different ways, it is known as polymorphism.
@@ -48,9 +48,11 @@ public class Examples {
             Cohesion --->> ||--- > Cohesion refers to the level of a component which performs a single
             well-defined task. A single well-defined task is done by a highly cohesive method.
             The weakly cohesive method will split the task into separate parts.
+
              The java.io package is a highly cohesive package because it has I/O related classes and interface.
               However, the java.util package is a weakly cohesive package because it has unrelated classes
               and interfaces.
+
          */
     }
 }

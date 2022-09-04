@@ -15,7 +15,8 @@ public class FatherDTO {
     String address;
 
     public void printSomethig(){
-        System.out.println("Hi I'm father.");
+        Methods childDTO = new ChildDTO();
+        childDTO.printSomethigX();
     }
 
 }

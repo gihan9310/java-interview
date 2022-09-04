@@ -21,8 +21,10 @@ public class ExampleTwo {
         System.out.println("Total Salary : " +totalSalaryForMonth);
         Double totalSalaryFormTotal = tempList.stream().map(obj -> obj.getTotalSalary()).collect(Collectors.summingDouble(Double::doubleValue));
         System.out.println("totalSalaryFormTotal : " +totalSalaryFormTotal);
+
         Double companyTotalCostForETF = tempList.stream().map(obj -> obj.getBasicSalary() * (EPF_COMPANY / 100)).collect(Collectors.summingDouble(Double::doubleValue));
         System.out.println("companyTotalCostForETF : "+companyTotalCostForETF);
+
         Double employeeTotalCostForETF = tempList.stream().map(obj -> obj.getBasicSalary() * (EPF_Emplyee / 100)).collect(Collectors.summingDouble(Double::doubleValue));
         System.out.println("employeeTotalCostForETF : "+employeeTotalCostForETF);
 
@@ -30,7 +32,7 @@ public class ExampleTwo {
         System.out.println("totalMoneyForMonth Company: "+totalMoneyForMonth);
 
         HashMap<EmployeeDTO, Double> emplyeeFinalPayemnts = tempList.stream().collect(Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.summingDouble(v ->v.getAllowance()+ (v.getBasicSalary() * (1 - (EPF_Emplyee / 100))))));
-//        System.out.println("emplyeeFinalPayemnts : "+emplyeeFinalPayemnts);
+        System.out.println("emplyeeFinalPayemnts : "+emplyeeFinalPayemnts);
 
         HashMap<String, Float> nameAndSalary = new HashMap<>();
         emplyeeFinalPayemnts.forEach((dto, aDouble) -> {

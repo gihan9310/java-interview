@@ -9,12 +9,11 @@ import lombok.ToString;
 @NoArgsConstructor()
 @AllArgsConstructor()
 @ToString()
-public class ChildDTO  extends FatherDTO{
+public class ChildDTO implements Methods{
 
     String degree;
 
-    @Override
-    public void printSomethig() {
+    public void printSomethigX() {
 //        super.printSomethig();
         System.out.println(" hi SON");
     }
